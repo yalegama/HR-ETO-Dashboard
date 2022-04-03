@@ -1,9 +1,10 @@
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect, useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import { Grid } from '@material-ui/core';
+import axios from 'axios';
 import {
   ComposedChart,
   Line,
@@ -18,37 +19,12 @@ import {
 } from 'recharts';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'area', headerName: 'Area', width: 150 },
   {
-    field: 'firstName',
-    headerName: 'First name',
+    field: 'eto',
+    headerName: 'ETO',
     width: 150,
-    editable: true,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: true,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.getValue(params.id, 'firstName') || ''} ${
-        params.getValue(params.id, 'lastName') || ''
-      }`,
-  },
+  }
 ];
 
 const rows = [
@@ -105,6 +81,19 @@ const chartData = [
 
 
 function EtoReport() {
+
+  const [barChartData, setbarChartData] = useState([]);
+  const loadData=async()=>{
+    const response=await axios.get("http://localhost:3001/etodetails");
+    setbarChartData(response.barChartData);
+  }
+  useEffect(() => {
+    loadData();
+    console.log(barChartData)
+    console.log("Load Data")
+  }, [])
+  
+
     
   return (
       <DashboardLayout>
@@ -112,27 +101,26 @@ function EtoReport() {
           <div className='cards'>
           <Grid item xs={12} md={6} xl={3}>
              
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" aspect={2}>
         <ComposedChart
           layout="vertical"
-          width={500}
-          height={400}
-          data={chartData}
+          width={1000}
+          height={1000}
+          data={barChartData}
           margin={{
             top: 20,
             right: 20,
             bottom: 20,
-            left: 20,
           }}
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis type="number" />
-          <YAxis dataKey="name" type="category" scale="band" />
+          <YAxis dataKey="area" type="category" scale="band" />
           <Tooltip />
-          <Legend />
+          {/* <Legend />
           <Area dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-          <Line dataKey="uv" stroke="#ff7300" />
+          <Bar dataKey="pv" barSize={15} fill="#fff" /> */}
+          {/* <Line dataKey="uv" stroke="#ff7300" /> */}
         </ComposedChart>
       </ResponsiveContainer>
 
