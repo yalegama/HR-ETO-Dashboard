@@ -42,7 +42,7 @@ function importCsvData2MySQL(filename){
 				if (error) {
 					console.error(error);
 				} else {
-					let query = 'INSERT INTO etoreport (date, area, internalcarder, actualcarder, vop, resign, total, voppercentage, eto, flowarea, shift, vsl, er, gl, godfather, lokuakka) VALUES ?';
+					let query = 'INSERT INTO etoreport (date, area, internalcarder, actualcarder, vop, resign, total, voppercentage, etop, flowarea, shift, vsl, er, gl, godfather, lokuakka) VALUES ?';
 					connection.query(query, [csvData], (error, response) => {
 						console.log(error || response);
                         

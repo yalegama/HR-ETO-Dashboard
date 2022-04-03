@@ -21,7 +21,7 @@ import {
 const columns = [
   { field: 'area', headerName: 'Area', width: 150 },
   {
-    field: 'eto',
+    field: 'etop',
     headerName: 'ETO',
     width: 150,
   }
@@ -82,17 +82,17 @@ const chartData = [
 
 function EtoReport() {
 
-  const [barChartData, setbarChartData] = useState([]);
+  const [data, setdata] = useState([]);
   const loadData=async()=>{
     const response=await axios.get("http://localhost:3001/etodetails");
-    setbarChartData(response.barChartData);
+    setdata(response.data);
   }
   useEffect(() => {
     loadData();
-    console.log(barChartData)
-    console.log("Load Data")
+    console.log(data)
+    console.log("Lodaed")
   }, [])
-  
+
 
     
   return (
@@ -106,7 +106,7 @@ function EtoReport() {
           layout="vertical"
           width={1000}
           height={1000}
-          data={barChartData}
+          data={data}
           margin={{
             top: 20,
             right: 20,
@@ -127,9 +127,9 @@ function EtoReport() {
             </Grid>
           </div>
           <div className='table'>
-          <div style={{ height: 400, width: '100%',backgroundColor:'whitesmoke' }}>
+          <div style={{ height: 800, width: '50%',backgroundColor:'whitesmoke' }}>
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         pageSize={30}
         checkboxSelection
