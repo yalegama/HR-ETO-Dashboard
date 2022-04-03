@@ -19,7 +19,7 @@ function Footer() {
           sx={{ textAlign: "center", fontWeight: "400 !important" }}
           color="white"
         >
-          @ 2021 Made by &nbsp;&nbsp;{" "}
+          @ 2022 Made by &nbsp;{" "}
           
           <VuiTypography
             ml="2px"
