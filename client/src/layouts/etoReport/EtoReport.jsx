@@ -22,7 +22,7 @@ const columns = [
   { field: 'area', headerName: 'Area', width: 150 },
   {
     field: 'etop',
-    headerName: 'ETO',
+    headerName: 'ETO %',
     width: 150,
   }
 ];
@@ -99,6 +99,13 @@ function EtoReport() {
       <DashboardLayout>
           <DashboardNavbar/>
           <div className='cards'>
+
+            <div className='cardHolder'>
+            <div className='card1'>
+              TOTAL ETO %
+            </div>
+            </div>
+
           <Grid item xs={12} md={6} xl={3}>
              
           <ResponsiveContainer width="100%" height="100%" aspect={2}>
