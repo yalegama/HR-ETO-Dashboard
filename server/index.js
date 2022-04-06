@@ -55,9 +55,19 @@ function importCsvData2MySQL(filename){
 }
 
 
+
+
+
 app.get("/etodetails",(req,res)=>{
 	const etoDetails="SELECT * FROM etoreport ";
 	connection.query(etoDetails,(err,result)=>{
+		res.send(result)
+	})
+})
+
+app.get("/etoreason",(req,res)=>{
+	const etoReasons="SELECT * FROM etoreasons ";
+	connection.query(etoReasons,(err,result)=>{
 		res.send(result)
 	})
 })

@@ -23,14 +23,14 @@ const columns = [
     field: 'internalcarder',
     headerName: 'Internal Carder',
     type: 'number',
-    width: 110,
+    width: 180,
     editable: false,
   },
   {
     field: 'actualcarder',
     headerName: 'Actual Carder',
     type: 'number',
-    width: 110,
+    width: 180,
     editable: false,
   },
   {
@@ -44,7 +44,7 @@ const columns = [
     field: 'resign',
     headerName: 'Resign',
     type: 'number',
-    width: 110,
+    width: 120,
     editable: false,
   },
   {
@@ -58,7 +58,7 @@ const columns = [
     field: 'voppercentage',
     headerName: 'VOP%',
     type: 'number',
-    width: 110,
+    width: 120,
     editable: false,
   },
   {
@@ -71,7 +71,7 @@ const columns = [
   {
     field: 'flowarea',
     headerName: 'Flow Area',
-    width: 110,
+    width: 150,
     editable: false,
   },
   {
@@ -101,13 +101,13 @@ const columns = [
   {
     field: 'godfather',
     headerName: 'God Father',
-    width: 110,
+    width: 180,
     editable: false,
   },
   {
     field: 'lokuakka',
     headerName: 'Loku Akka',
-    width: 110,
+    width: 180,
     editable: false,
   },
   

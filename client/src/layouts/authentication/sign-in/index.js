@@ -1,23 +1,7 @@
-/*!
 
-=========================================================
-* Vision UI Free React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vision-ui-free-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-* Licensed under MIT (https://github.com/creativetimofficial/vision-ui-free-react/blob/master LICENSE.md)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -45,20 +29,31 @@ function SignIn() {
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
+  const [useName, setuseName] = useState('');
+  const userNameChange=(e)=>{
+    setuseName(e.target.value);
+  }
+
+  const [password, setpassword] = useState('');
+  const changePassword=(e)=>{
+    setpassword(e.target.value);
+  }
+
+
   return (
     <CoverLayout
       title="Nice to see you!"
       color="white"
-      description="Enter your email and password to sign in"
-      premotto="INSPIRED BY THE FUTURE:"
-      motto="THE VISION UI DASHBOARD"
+      description="Enter your User Name and Password to sign in"
+      premotto="HR Dashboard"
+      motto="MAS KREEDA SYNERGY"
       image={bgSignIn}
     >
       <VuiBox component="form" role="form">
         <VuiBox mb={2}>
           <VuiBox mb={1} ml={0.5}>
             <VuiTypography component="label" variant="button" color="white" fontWeight="medium">
-              Email
+              User Name
             </VuiTypography>
           </VuiBox>
           <GradientBorder
@@ -71,7 +66,7 @@ function SignIn() {
               palette.gradients.borderLight.angle
             )}
           >
-            <VuiInput type="email" placeholder="Your email..." fontWeight="500" />
+            <VuiInput type="text" onChange={userNameChange} placeholder="Your User Name..." fontWeight="500" />
           </GradientBorder>
         </VuiBox>
         <VuiBox mb={2}>
@@ -92,6 +87,7 @@ function SignIn() {
           >
             <VuiInput
               type="password"
+              onChange={changePassword}
               placeholder="Your password..."
               sx={({ typography: { size } }) => ({
                 fontSize: size.sm,
@@ -112,7 +108,8 @@ function SignIn() {
           </VuiTypography>
         </VuiBox>
         <VuiBox mt={4} mb={1}>
-          <VuiButton color="info" fullWidth>
+          <VuiButton
+          color="info" fullWidth>
             SIGN IN
           </VuiButton>
         </VuiBox>

@@ -28,25 +28,25 @@ const columns = [
   {
     field: 'name',
     headerName: 'Name',
-    width: 110,
+    width: 140,
     editable: false,
   },
   {
     field: 'team',
     headerName: 'Team',
-    width: 110,
+    width: 160,
     editable: false,
   },
   {
     field: 'absentreason',
     headerName: 'Absent Reason',
-    width: 110,
+    width: 180,
     editable: false,
   },
   {
     field: 'subreason',
     headerName: 'Sub Reason',
-    width: 110,
+    width: 160,
     editable: false,
   }
 ];
@@ -70,7 +70,7 @@ export default function EtoReasons() {
   
   const [data, setdata] = useState([]);
   const loadData=async()=>{
-    const response=await axios.get("http://localhost:3001/etodetails");
+    const response=await axios.get("http://localhost:3001/etoreason");
     setdata(response.data);
   }
   useEffect(() => {
@@ -83,9 +83,14 @@ export default function EtoReasons() {
   return (
     <DashboardLayout>
       <DashboardNavbar/>
+      <div className='form'>
+        <form action="">
+          <button>Upload Your File</button>
+        </form>
+      </div>
     <div style={{ height: 550, width: '100%' , backgroundColor:'white'}}>
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         pageSize={10}
         checkboxSelection

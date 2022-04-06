@@ -3,7 +3,7 @@ import React, { PureComponent, useEffect, useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import { Grid } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 import axios from 'axios';
 import {
   ComposedChart,
@@ -17,6 +17,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import input from 'assets/theme/components/form/input';
 
 const columns = [
   { field: 'area', headerName: 'Area', width: 150 },
@@ -98,6 +99,15 @@ function EtoReport() {
   return (
       <DashboardLayout>
           <DashboardNavbar/>
+
+          <div className='form'>
+            <form action="">
+              <label htmlFor="">Upload Your File Now</label>
+              
+              <button>Click Here</button>
+            </form>
+          </div>
+
           <div className='cards'>
 
             <div className='cardHolder'>
@@ -106,32 +116,6 @@ function EtoReport() {
             </div>
             </div>
 
-          <Grid item xs={12} md={6} xl={3}>
-             
-          <ResponsiveContainer width="100%" height="100%" aspect={2}>
-        <ComposedChart
-          layout="vertical"
-          width={1000}
-          height={1000}
-          data={data}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-          }}
-        >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis type="number" />
-          <YAxis dataKey="area" type="category" scale="band" />
-          <Tooltip />
-          {/* <Legend />
-          <Area dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="pv" barSize={15} fill="#fff" /> */}
-          {/* <Line dataKey="uv" stroke="#ff7300" /> */}
-        </ComposedChart>
-      </ResponsiveContainer>
-
-            </Grid>
           </div>
           <div className='table'>
           <div style={{ height: 800, width: '50%',backgroundColor:'whitesmoke' }}>

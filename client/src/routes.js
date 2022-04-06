@@ -36,24 +36,16 @@ const routes = [
     component: EtoReport,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: Tables,
-    noCollapse: true,
-  },
-  {
-    type: "collapse",
-    name: "Billing",
-    key: "billing",
-    route: "/billing",
-    icon: <BsCreditCardFill size="15px" color="inherit" />,
-    component: Billing,
-    noCollapse: true,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Tables",
+  //   key: "tables",
+  //   route: "/tables",
+  //   icon: <IoStatsChart size="15px" color="inherit" />,
+  //   component: Tables,
+  //   noCollapse: true,
+  // },
+  
   {
     type: "collapse",
     name: "ETO Reasons",
@@ -91,15 +83,7 @@ const routes = [
     component: SignIn,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    route: "/authentication/sign-up",
-    icon: <IoRocketSharp size="15px" color="inherit" />,
-    component: SignUp,
-    noCollapse: true,
-  },
+  
 ];
 
 export default routes;
