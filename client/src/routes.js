@@ -8,6 +8,7 @@ import SignUp from "layouts/authentication/sign-up";
 import EtoDetails from "layouts/etoDetails/EtoDetails";
 import EtoReport from "layouts/etoReport/EtoReport";
 import EtoReasons from "layouts/etoReasons/EtoReasons";
+import Area from "layouts/area/Area";
 
 import { IoRocketSharp } from "react-icons/io5";
 import { IoIosDocument } from "react-icons/io";
@@ -62,6 +63,15 @@ const routes = [
     route: "/EtoDetails",
     icon: <BsCreditCardFill size="15px" color="inherit" />,
     component: EtoDetails,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Area",
+    key: "Area",
+    route: "/Area",
+    icon: <BsCreditCardFill size="15px" color="inherit" />,
+    component: Area,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },
